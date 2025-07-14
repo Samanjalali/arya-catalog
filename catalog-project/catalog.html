@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کاتالوگ هوشمند آریا وود عمان</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      direction: rtl;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      background-color: rgba(255,255,255,0.8);
+      background-blend-mode: lighten;
+    }
+    header {
+      background: #007bffcc;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .category {
+      background: whitecc;
+      margin: 10px auto;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      cursor: pointer;
+      text-align: right;
+      direction: rtl;
+    }
+    .category h2 {
+      color: #007bff;
+      margin: 0;
+      padding: 10px 0;
+      user-select: none;
+    }
+    .products-container {
+      display: none;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .product {
+      margin: 15px 0;
+    }
+    .product img {
+      max-width: 300px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .contact {
+      background: #e9ecef;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      text-align: right;
+      direction: rtl;
+      cursor: default;
+    }
+    .contact p {
+      margin: 8px 0;
+    }
+    .btn-whatsapp {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="title">کاتالوگ هوشمند آریا وود عمان</h1>
+    <p id="subtitle">نمونه کارهای ما را ببینید و با ما در ارتباط باشید</p>
+  </header>
+
+  <!-- دسته بندی 1 -->
+  <div class="category" data-cat="kitchen">
+    <h2 id="cat1-title">کابینت آشپزخانه</h2>
+    <div class="products-container">
+      <div class="product">
+        <img src="kitchen1.jpg" alt="کابینت آشپزخانه ۱" />
+        <p id="cat1-p1">مدل کلاسیک با ترکیب رنگ سفید و طلایی</p>
+      </div>
+      <div class="product">
+        <img src="kitchen2.jpg" alt="کابینت آشپزخانه ۲" />
+        <p id="cat1-p2">مدرن و مینیمال با روکش هایگلاس طوسی</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- دسته بندی 2 -->
+  <div class="category" data-cat="closet">
+    <h2 id="cat2-title">کمد لباس و کلوزت</h2>
+    <div class="products-container">
+      <div class="product">
+        <img src="closet1.jpg" alt="کلوزت ۱" />
+        <p id="cat2-p1">کلوزت ریلی با نورپردازی LED و فضای مجزا برای کفش و لباس</p>
+      </div>
+      <div class="product">
+        <img src="closet2.jpg" alt="کلوزت ۲" />
+        <p id="cat2-p2">کمد لباس با درب کشویی آینه‌ای مناسب فضاهای کوچک</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- دسته بندی 3 -->
+  <div class="category" data-cat="tvwall">
+    <h2 id="cat3-title">تی وی وال</h2>
+    <div class="products-container">
+      <div class="product">
+        <img src="tvwall1.jpg" alt="تی وی وال ۱" />
+        <p id="cat3-p1">دیوار تلویزیون با طراحی مدرن و نور مخفی</p>
+      </div>
+      <div class="product">
+        <img src="tvwall2.jpg" alt="تی وی وال ۲" />
+        <p id="cat3-p2">طرح کلاسیک چوبی با باکس‌های دکوری</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- دسته بندی 4 (تماس) -->
+  <div class="category contact">
+    <h2 id="contact-title">راه‌های ارتباط و آدرس</h2>
+    <p id="contact-address">آدرس: شناص، قسمت صنایع، خیابان وادی فیض</p>
+    <p id="contact-phone">تلفن: +96877050997</p>
+    <p id="contact-ig">اینستاگرام: 
+      <a href="https://instagram.com/Aryawood_oman" target="_blank" id="contact-ig-link">@Aryawood_oman</a>
+    </p>
+    <a href="https://wa.me/96877050997" target="_blank" class="btn-whatsapp" id="contact-whatsapp">چت در واتساپ</a>
+  </div>
+
+  <script>
+    const translations = {
+      fa: {
+        title: "کاتالوگ هوشمند آریا وود عمان",
+        subtitle: "نمونه کارهای ما را ببینید و با ما در ارتباط باشید",
+        cat1_title: "کابینت آشپزخانه",
+        cat1_p1: "مدل کلاسیک با ترکیب رنگ سفید و طلایی",
+        cat1_p2: "مدرن و مینیمال با روکش هایگلاس طوسی",
+        cat2_title: "کمد لباس و کلوزت",
+        cat2_p1: "کلوزت ریلی با نورپردازی LED و فضای مجزا برای کفش و لباس",
+        cat2_p2: "کمد لباس با درب کشویی آینه‌ای مناسب فضاهای کوچک",
+        cat3_title: "تی وی وال",
+        cat3_p1: "دیوار تلویزیون با طراحی مدرن و نور مخفی",
+        cat3_p2: "طرح کلاسیک چوبی با باکس‌های دکوری",
+        contact_title: "راه‌های ارتباط و آدرس",
+        contact_address: "آدرس: شناص، قسمت صنایع، خیابان وادی فیض",
+        contact_phone: "تلفن: +96877050997",
+        contact_ig: "اینستاگرام:",
+        contact_whatsapp: "چت در واتساپ"
+      },
+      en: {
+        title: "Aryawood Oman Smart Catalog",
+        subtitle: "See our samples and get in touch with us",
+        cat1_title: "Kitchen Cabinets",
+        cat1_p1: "Classic model with white and gold combination",
+        cat1_p2: "Modern and minimal with gray high-gloss coating",
+        cat2_title: "Wardrobes & Closets",
+        cat2_p1: "Sliding closet with LED lighting and separate shoe and clothes space",
+        cat2_p2: "Wardrobe with mirrored sliding doors, suitable for small spaces",
+        cat3_title: "TV Wall",
+        cat3_p1: "TV wall with modern design and hidden lighting",
+        cat3_p2: "Classic wooden design with decorative boxes",
+        contact_title: "Contact & Address",
+        contact_address: "Address: Shinas, Industrial Area, Wadi Al Fayz Street",
+        contact_phone: "Phone: +96877050997",
+        contact_ig: "Instagram:",
+        contact_whatsapp: "Chat on WhatsApp"
+      },
+      ar: {
+        title: "كتالوج آريا وود عمان الذكي",
+        subtitle: "شاهد نماذجنا وتواصل معنا",
+        cat1_title: "خزائن المطبخ",
+        cat1_p1: "تصميم كلاسيكي مع مزيج من الأبيض والذهبي",
+        cat1_p2: "تصميم حديث وبسيط مع طلاء عالي اللمعان رمادي",
+        cat2_title: "خزائن الملابس والخزائن",
+        cat2_p1: "خزانة منزلقة بإضاءة LED ومساحة منفصلة للأحذية والملابس",
+        cat2_p2: "خزانة ملابس بأبواب منزلقة مع مرآة مناسبة للأماكن الصغيرة",
+        cat3_title: "جدار التلفاز",
+        cat3_p1: "جدار تلفاز بتصميم حديث وإضاءة مخفية",
+        cat3_p2: "تصميم خشبي كلاسيكي مع صناديق زخرفية",
+        contact_title: "وسائل الاتصال والعنوان",
+        contact_address: "العنوان: شناص، المنطقة الصناعية، شارع وادي الفيض",
+        contact_phone: "هاتف: +96877050997",
+        contact_ig: "انستجرام:",
+        contact_whatsapp: "الدردشة عبر واتساب"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang] || translations['fa']; // اگر زبان نبود فارسی پیشفرض
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'fa'; // تنظیم جهت برای عربی یا فارسی (rtl)
+      document.body.style.direction = (lang === 'ar' || lang === 'fa') ? 'rtl' : 'ltr';
+
+      // تغییر متن‌ها
+      document.getElementById('title').textContent = t.title;
+      document.getElementById('subtitle').textContent = t.subtitle;
+
+      document.getElementById('cat1-title').textContent = t.cat1_title;
+      document.getElementById('cat1-p1').textContent = t.cat1_p1;
+      document.getElementById('cat1-p2').textContent = t.cat1_p2;
+
+      document.getElementById('cat2-title').textContent = t.cat2_title;
+      document.getElementById('cat2-p1').textContent = t.cat2_p1;
+      document.getElementById('cat2-p2').textContent = t.cat2_p2;
+
+      document.getElementById('cat3-title').textContent = t.cat3_title;
+      document.getElementById('cat3-p1').textContent = t.cat3_p1;
+      document.getElementById('cat3-p2').textContent = t.cat3_p2;
+
+      document.getElementById('contact-title').textContent = t.contact_title;
+      document.getElementById('contact-address').textContent = t.contact_address;
+      document.getElementById('contact-phone').textContent = t.contact_phone;
+      document.getElementById('contact-ig').textContent = t.contact_ig;
+      document.getElementById('contact-whatsapp').textContent = t.contact_whatsapp;
+    }
+
+    // باز و بسته کردن دسته‌ها مثل قبل
+    const categories = document.querySelectorAll('.category[data-cat]');
+    categories.forEach(category => {
+      category.addEventListener('click', () => {
+        categories.forEach(cat => {
+          if(cat !== category) {
+            cat.querySelector('.products-container').style.display = 'none';
+          }
+        });
+        const container = category.querySelector('.products-container');
+        if(container.style.display === 'block') {
+          container.style.display = 'none';
+        } else {
+          container.style.display = 'block';
+        }
+      });
+    });
+
+    // موقع لود صفحه، زبان رو از localStorage بخون و اعمال کن
+    window.addEventListener('DOMContentLoaded', () => {
+      const lang = localStorage.getItem('lang') || 'fa';
+      setLanguage(lang);
+    });
+  </script>
+
+</body>
+</html>

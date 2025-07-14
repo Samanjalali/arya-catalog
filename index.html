@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Catalog Form</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    img.logo {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      color: #555;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .lang-switch {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="logo.png" alt="Logo" class="logo" />
+
+    <div class="lang-switch">
+      <button type="button" onclick="setLanguage('fa')">فارسی</button>
+      <button type="button" onclick="setLanguage('en')">English</button>
+      <button type="button" onclick="setLanguage('ar')">العربية</button>
+    </div>
+
+    <h2 id="welcome-message">به کاتالوگ هوشمند ما خوش آمدید!</h2>
+
+    <form id="catalogForm">
+      <label id="label-name" for="name">نام</label>
+      <input type="text" id="name" name="First Name" required placeholder="نام خود را وارد کنید" />
+
+      <label id="label-lastname" for="lastname">نام خانوادگی</label>
+      <input type="text" id="lastname" name="Last Name" required placeholder="نام خانوادگی خود را وارد کنید" />
+
+      <label id="label-phone" for="phone">شماره تلفن</label>
+      <input type="tel" id="phone" name="Phone Number" required placeholder="مثلاً 09123456789" />
+
+      <button type="submit" id="submit-btn">ارسال و مشاهده کاتالوگ</button>
+    </form>
+  </div>
+
+  <script>
+    // مقدار پیشفرض زبان فارسی
+    let currentLang = 'fa';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang); // ذخیره زبان برای صفحه کاتالوگ
+
+      if (lang === 'ar') {
+        document.documentElement.lang = 'ar';
+        document.body.dir = 'rtl';
+        document.getElementById('welcome-message').textContent = 'مرحبًا بك في كتالوجنا الذكي!';
+        document.getElementById('label-name').textContent = 'الاسم الأول';
+        document.getElementById('name').placeholder = 'أدخل اسمك الأول';
+        document.getElementById('label-lastname').textContent = 'اسم العائلة';
+        document.getElementById('lastname').placeholder = 'أدخل اسم عائلتك';
+        document.getElementById('label-phone').textContent = 'رقم الهاتف';
+        document.getElementById('phone').placeholder = 'مثلاً 09123456789';
+        document.getElementById('submit-btn').textContent = 'إرسال وعرض الكتالوج';
+      } else if(lang === 'en') {
+        document.documentElement.lang = 'en';
+        document.body.dir = 'ltr';
+        document.getElementById('welcome-message').textContent = 'Welcome to our Smart Catalog!';
+        document.getElementById('label-name').textContent = 'First Name';
+        document.getElementById('name').placeholder = 'Enter your first name';
+        document.getElementById('label-lastname').textContent = 'Last Name';
+        document.getElementById('lastname').placeholder = 'Enter your last name';
+        document.getElementById('label-phone').textContent = 'Phone Number';
+        document.getElementById('phone').placeholder = 'e.g. 09123456789';
+        document.getElementById('submit-btn').textContent = 'Send and View Catalog';
+      } else {
+        // فارسی
+        document.documentElement.lang = 'fa';
+        document.body.dir = 'rtl';
+        document.getElementById('welcome-message').textContent = 'به کاتالوگ هوشمند ما خوش آمدید!';
+        document.getElementById('label-name').textContent = 'نام';
+        document.getElementById('name').placeholder = 'نام خود را وارد کنید';
+        document.getElementById('label-lastname').textContent = 'نام خانوادگی';
+        document.getElementById('lastname').placeholder = 'نام خانوادگی خود را وارد کنید';
+        document.getElementById('label-phone').textContent = 'شماره تلفن';
+        document.getElementById('phone').placeholder = 'مثلاً 09123456789';
+        document.getElementById('submit-btn').textContent = 'ارسال و مشاهده کاتالوگ';
+      }
+    }
+
+    // تنظیم زبان صفحه بر اساس localStorage در بارگذاری صفحه
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('lang');
+      if(savedLang){
+        setLanguage(savedLang);
+      } else {
+        setLanguage('fa');
+      }
+    });
+
+    // ارسال فرم و باز کردن صفحه کاتالوگ
+    document.getElementById("catalogForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const formData = new FormData(this);
+
+      fetch("https://formsubmit.co/ajax/samancj75@gmail.com", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        // بعد از ارسال موفق، به صفحه کاتالوگ برو
+        window.location.href = "catalog.html";
+      })
+      .catch(error => {
+        console.error(error);
+        alert('خطا در ارسال فرم. لطفا دوباره تلاش کنید.');
+      });
+    });
+  </script>
+  
+</body>
+</html>
